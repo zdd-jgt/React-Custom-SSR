@@ -1,0 +1,36 @@
+{
+  "name": "react-custom-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:client": "webpack --config config/webpack.config.js",
+    "dev:server": "tsx app/server/server.tsx",
+    "dev": "pnpm build:client && pnpm dev:server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tanstack/react-query": "^5.101.1",
+    "axios": "^1.18.1",
+    "koa": "^3.2.1",
+    "koa-static": "^5.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^3.0.3",
+    "@types/koa-static": "^4.0.4",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "ts-loader": "^9.6.2",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3"
+  }
+}
