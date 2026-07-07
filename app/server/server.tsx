@@ -12,12 +12,13 @@ app.use(serve(path.resolve(process.cwd(), "dist/client")));
 
 // 调用 renderApp 返回 HTML
 app.use(async(ctx) => {
-    const { appHtml, dehydratedState } = await renderApp(ctx);
+    const { appHtml, dehydratedState, helmetContext } = await renderApp(ctx);
 
     ctx.type = "html";
     ctx.body = getHtmlTemplate({
         appHtml,
-        dehydratedState
+        dehydratedState,
+        helmetContext
     })
 });
 

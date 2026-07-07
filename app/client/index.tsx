@@ -2,6 +2,7 @@ import React from "react";
 import { hydrateRoot } from "react-dom/client";
 import App from "../../src/index";
 import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import {
     QueryClient,
     QueryClientProvider,
@@ -24,10 +25,12 @@ const dehydratedState = stateElement?.textContent ? JSON.parse(stateElement.text
 hydrateRoot(
     root, 
     <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-            <HydrationBoundary state={dehydratedState}>
-                <App />
-            </HydrationBoundary>
-        </QueryClientProvider>
+        <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+                <HydrationBoundary state={dehydratedState}>
+                    <App />
+                </HydrationBoundary>
+            </QueryClientProvider>
+        </HelmetProvider>
     </BrowserRouter>
 );

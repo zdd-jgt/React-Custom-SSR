@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 import { QueryKeys } from "../apis/querykeys";
 import { getHomeList } from "../apis/services/Home"
 
@@ -11,6 +12,18 @@ const Home = () => {
     })
     return (
         <main>
+            <Helmet
+                htmlAttributes={{
+                    lang: "zh-CN"
+                }}
+                bodyAttributes={{
+                    class: "home-page"
+                }}
+            >
+                <title>Home Page - Custom SSR</title>
+                <meta name="description" content="This is the SSR home page" />
+            </Helmet>
+
             <h1>Home Page</h1>
             <nav>
                 <Link to="/about">Go About</Link>
