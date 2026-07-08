@@ -1,14 +1,17 @@
 import type { FilledContext } from "react-helmet-async"
+import type { ChunkExtractor } from "@loadable/server";
 export interface HtmlTemplateOptions {
     appHtml:string;
     dehydratedState: unknown;
     helmetContext: FilledContext;
+    extractor: ChunkExtractor;
 }
 
 export const getHtmlTemplate = ({
     appHtml,
     dehydratedState,
     helmetContext,
+    extractor,
 }: HtmlTemplateOptions) => {
     const helmet = helmetContext.helmet;
     return `
@@ -19,6 +22,8 @@ export const getHtmlTemplate = ({
             ${helmet?.title.toString() ?? "<title>React Custom SSR</title>"}
             ${helmet?.meta.toString() ?? ""}
             ${helmet?.link.toString() ?? ""}
+            ${extractor.getLinkTags()}
+            ${extractor.getStyleTags()}
         </head>
         
         <body ${helmet?.bodyAttributes.toString() ?? ""}>
@@ -26,7 +31,7 @@ export const getHtmlTemplate = ({
             <script id="__REACT_QUERY_STATE__" type="application/json">
                 ${JSON.stringify(dehydratedState)}
             </script>
-            <script src="/client.js"></script>
+            ${extractor.getScriptTags()}
         </body>
     </html>
     `

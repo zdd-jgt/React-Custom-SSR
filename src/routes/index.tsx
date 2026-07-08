@@ -1,9 +1,11 @@
-import Home from "../pages/Home";
-import About from "../pages/About";
 import Redirect from "../../app/utils/Redirect";
+import loadable from "../../app/utils/loadable";
 import { QueryKeys } from "../apis/querykeys"
 import { getHomeList } from "../apis/services/Home";
 import type { PreFetchRouteObject } from "../../app/utils/routesTypes";
+
+const Home = loadable(() => import("../pages/Home"), null)
+const About = loadable(() => import("../pages/About"), null)
 
 const routes: PreFetchRouteObject[] = [
     {

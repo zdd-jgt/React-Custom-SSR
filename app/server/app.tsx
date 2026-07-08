@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-query";
 import { HelmetProvider, type FilledContext } from "react-helmet-async";
 import type { Context } from "koa";
+import { ChunkExtractor } from "@loadable/server";
 import App from "../../src/index";
 import routes from "../../src/routes";
 
@@ -33,7 +34,7 @@ export const prefetch = async (ctx: Context, queryClient: QueryClient) => {
 }
 
 // renderApp：完成服务端 React 渲染
-export const renderApp = async (ctx: Context) => {
+export const renderApp = async (ctx: Context, extractor: ChunkExtractor) => {
     const queryClient = new QueryClient();
     const helmetContext = {} as FilledContext;
 
@@ -43,15 +44,17 @@ export const renderApp = async (ctx: Context) => {
 
     // StaticRouter: 现在服务端正在渲染 ctx.url 这个地址，请你按这个地址匹配路由。
     const appHtml = renderToString(
-        <StaticRouter location={ctx.url}>
-            <HelmetProvider context={helmetContext}>
-                <QueryClientProvider client={queryClient}>
-                    <HydrationBoundary state={dehydratedState}>
-                        <App context={ctx} />
-                    </HydrationBoundary>
-                </QueryClientProvider>
-            </HelmetProvider>
-        </StaticRouter>
+        extractor.collectChunks(
+            <StaticRouter location={ctx.url}>
+                <HelmetProvider context={helmetContext}>
+                    <QueryClientProvider client={queryClient}>
+                        <HydrationBoundary state={dehydratedState}>
+                            <App context={ctx} />
+                        </HydrationBoundary>
+                    </QueryClientProvider>
+                </HelmetProvider>
+            </StaticRouter>
+        )
     );
 
     queryClient.clear();

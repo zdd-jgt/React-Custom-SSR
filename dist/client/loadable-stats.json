@@ -1,0 +1,187 @@
+{
+  "name": "client",
+  "hash": "600b3c8e0cd4ef3a3c42",
+  "publicPath": "/",
+  "outputPath": "/Users/jgt/JGTCode/codex/全栈练习/React-Custom-SSR/dist/client",
+  "assetsByChunkName": {
+    "client": [
+      "client.js"
+    ],
+    "pages-Home": [
+      "pages-Home.chunk.js"
+    ],
+    "pages-About": [
+      "pages-About.chunk.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "client.js",
+      "size": 1859614,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "javascriptModule": false
+      },
+      "chunkNames": [
+        "client"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "chunks": [
+        "client"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "vendors-node_modules_pnpm_tanstack_react-query_5_101_1_react_18_2_0_node_modules_tanstack_rea-cc9456.chunk.js",
+      "size": 41137,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "javascriptModule": false
+      },
+      "chunkNames": [],
+      "chunkIdHints": [
+        "vendors"
+      ],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "chunks": [
+        "vendors-node_modules_pnpm_tanstack_react-query_5_101_1_react_18_2_0_node_modules_tanstack_rea-cc9456"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "pages-Home.chunk.js",
+      "size": 4545,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "javascriptModule": false
+      },
+      "chunkNames": [
+        "pages-Home"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "chunks": [
+        "pages-Home"
+      ],
+      "auxiliaryChunks": []
+    },
+    {
+      "type": "asset",
+      "name": "pages-About.chunk.js",
+      "size": 2908,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "javascriptModule": false
+      },
+      "chunkNames": [
+        "pages-About"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "chunks": [
+        "pages-About"
+      ],
+      "auxiliaryChunks": []
+    }
+  ],
+  "namedChunkGroups": {
+    "client": {
+      "name": "client",
+      "chunks": [
+        "client"
+      ],
+      "assets": [
+        {
+          "name": "client.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home": {
+      "name": "pages-Home",
+      "chunks": [
+        "vendors-node_modules_pnpm_tanstack_react-query_5_101_1_react_18_2_0_node_modules_tanstack_rea-cc9456",
+        "pages-Home"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_pnpm_tanstack_react-query_5_101_1_react_18_2_0_node_modules_tanstack_rea-cc9456.chunk.js"
+        },
+        {
+          "name": "pages-Home.chunk.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-About": {
+      "name": "pages-About",
+      "chunks": [
+        "pages-About"
+      ],
+      "assets": [
+        {
+          "name": "pages-About.chunk.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "generator": "loadable-components",
+  "chunks": [
+    {
+      "id": "client",
+      "files": [
+        "client.js"
+      ]
+    },
+    {
+      "id": "pages-Home",
+      "files": [
+        "pages-Home.chunk.js"
+      ]
+    },
+    {
+      "id": "pages-About",
+      "files": [
+        "pages-About.chunk.js"
+      ]
+    },
+    {
+      "id": "vendors-node_modules_pnpm_tanstack_react-query_5_101_1_react_18_2_0_node_modules_tanstack_rea-cc9456",
+      "files": [
+        "vendors-node_modules_pnpm_tanstack_react-query_5_101_1_react_18_2_0_node_modules_tanstack_rea-cc9456.chunk.js"
+      ]
+    }
+  ]
+}
