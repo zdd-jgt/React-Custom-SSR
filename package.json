@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:client": "webpack --config config/webpack.config.js",
-    "dev:server": "tsx app/server/server.tsx",
-    "dev": "pnpm build:client && pnpm dev:server",
+    "build": "webpack --config config/webpack.config.js",
+    "dev": "pnpm build && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +13,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@loadable/component": "^5.16.7",
+    "@loadable/server": "^5.16.7",
     "@tanstack/react-query": "^5.101.1",
     "axios": "^1.18.1",
     "koa": "^3.2.1",
@@ -24,14 +25,24 @@
     "react-router-dom": "^7.18.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@loadable/babel-plugin": "^5.16.1",
+    "@loadable/webpack-plugin": "^5.15.2",
     "@types/koa": "^3.0.3",
     "@types/koa-static": "^4.0.4",
+    "@types/loadable__component": "^5.13.10",
+    "@types/loadable__server": "^5.12.11",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
+    "babel-loader": "^9.2.1",
     "ts-loader": "^9.6.2",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "webpack": "^5.107.2",
-    "webpack-cli": "^7.0.3"
+    "webpack-cli": "^7.0.3",
+    "webpack-node-externals": "^3.0.0"
   }
 }

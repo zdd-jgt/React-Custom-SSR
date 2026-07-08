@@ -1,0 +1,20 @@
+module.exports = {
+    presets: [
+        [
+            "@babel/preset-env",
+            {
+                targets: {
+                    node: "18"
+                }
+            }
+        ],
+        [
+            "@babel/preset-react",
+            {
+                runtime: "automatic"
+            }
+        ],
+        "@babel/preset-typescript",
+    ],
+    plugins: ["@loadable/babel-plugin"]
+}

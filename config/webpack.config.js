@@ -1,26 +1,63 @@
 const path = require("node:path");
+const LoadablePlugin = require("@loadable/webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
 
-module.exports = {
+const common = {
     mode: "development",
-    entry: "./app/client/index.tsx",
-    output: {
-        path: path.resolve(__dirname, "../dist/client"),
-        filename: "client.js",
-        publicPath: "/",
-    },
     resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".tsx", ".ts", ".js", ".jsx"],
     },
     module: {
         rules: [{
-          test: /\.(ts|tsx)$/,
-          use: {
-           loader: "ts-loader",
-           options: {
-            transpileOnly: true
-           }
-          },
-          exclude: /node_modules/, 
+            test: /\.(ts|tsx|js|jsx)$/,
+            use:"babel-loader",
+            exclude: /node_modules/, 
         }]
-    }
+    },
 }
+
+const client = {
+    ...common,
+    name: "client",
+    target: "web",
+    entry: {
+        client: "./app/client/index.tsx"
+    },
+    output: {
+        path: path.resolve(__dirname, "../dist/client"),
+        filename: "client.js",
+        chunkFilename: "[name].chunk.js",
+        publicPath: "/",
+        clean: true
+    },
+    plugins: [
+        new LoadablePlugin({
+            filename: "loadable-stats.json"
+        })
+    ]
+}
+
+const server = {
+    ...common,
+    name: "server",
+    target: "node",
+    externalsPresets: {
+        node: true
+    },
+    externals: [
+        nodeExternals({
+            allowlist: [/@loadable\/component/]
+        })
+    ],
+    entry: {
+        server: "./app/server/server.tsx"
+    },
+    output: {
+        path: path.resolve(__dirname, "../dist"),
+        filename: "server.js",
+        libraryTarget: "commonjs2",
+        publicPath: "/",
+    },
+}
+
+module.exports = [client, server]
